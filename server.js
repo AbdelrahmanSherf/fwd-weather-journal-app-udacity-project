@@ -54,7 +54,7 @@ app.use(express.static('website'));
 const serverPort = 4000;
 app.listen(serverPort, () => {
    // Callback to debug
-   console.log(`server running on port: ${serverPort}`);
+   console.log(`server running on port: http://localhost:${serverPort}`);
 });
 
 /* Initialize all route with a callback function */
