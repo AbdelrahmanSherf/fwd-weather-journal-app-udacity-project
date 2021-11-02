@@ -22,8 +22,8 @@
 
 
 
-// Setup empty JS object to act as endpoint for all routes
-const allWeatherData = [];
+// Empty JS object to act as endpoint for all routes
+allWeatherData = {};
 
 // Express to run server and routes
 const express = require('express');
@@ -54,29 +54,17 @@ app.listen(serverPort, () => {
 });
 
 /* Initialize all route with a callback function */
-// Respond with JS object when a GET request is made to the alldata route
+// GET Response with the GetAllData Object 
 app.get('/GetAllData', (req, res) => {
-   res.send(newWeatherData);
-   console.log('made a GET route request for all data');
+   res.send(allWeatherData);  
+   console.log('GET request for all data, successfully made');
 });
 
-
-// /* test */ const addData = [];
-// POST route adds incoming data to newWeatherData 
-   // The POST route should anticipate receiving three pieces of data from the request body
-         // temperature
-         // date
-         // user response
-   // Make sure your POST route is setup to add each of these values with a key to projectData.
-app.post('/addUserData', (req, res) => {
-   newWeatherData = {
-      temperature: req.body.temperature,
-      data: req.body.data,
-      userFeelings: req.body.userResponse,
-   }
-   allWeatherData.push(newWeatherData);
-   res.send(allWeatherData);
-   // console.log(allWeatherData);
+// POST request to add incoming data to allWeatherData Object 
+app.post('/addWeatherData', (req, res) => {
+   allWeatherData['temperature'] = req.body.temp;
+   allWeatherData['userFeelings']= req.body.userFeeling; 
+   allWeatherData['data']        = req.body.data;
 });
 
 // Callback function to complete GET '/all'
