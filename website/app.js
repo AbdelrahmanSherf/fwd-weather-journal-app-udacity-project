@@ -52,6 +52,9 @@ const updateUI = async () => {
       document.getElementById('temp').innerText = `Temperature: ${fetchedData.temperature}`;
       document.getElementById('content').innerText = fetchedData.userFeelings;
       document.getElementById('date').innerText = fetchedData.date;
+      // clear ZIP/Feelings fields
+      document.getElementById('zip').value = '';
+      document.getElementById('feelings').value = '';
    } catch(error) {
       console.log('could not retrieve all weather data for UI:', error);
    }
@@ -75,7 +78,6 @@ document.getElementById('generate').addEventListener('click', (event) => {
    let newDate = date.getMonth()+'.'+ date.getDate()+'.'+ date.getFullYear();
 
    /* GET - POST Requests, Async Functions */
-
    // GET req openWeatherMapAIP
    getWeatherData(opneWeatherMapLink, userInteredZipCode, API_KEY)
    // POST req to the server's endpoint with new weather/user data
