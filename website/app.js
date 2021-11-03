@@ -50,8 +50,8 @@ const updateUI = async () => {
 
       // update UI with retrieved weather data 
       document.getElementById('temp').innerText = `Temperature: ${fetchedData.temperature}`;
-      document.getElementById('content').innerText = fetchedData.userFeelings;
-      document.getElementById('date').innerText = fetchedData.date;
+      document.getElementById('content').innerText = `You're Feeling: ${fetchedData.userFeelings}`;
+      document.getElementById('date').innerText = `Date: ${fetchedData.date}`;
       // clear ZIP/Feelings fields
       document.getElementById('zip').value = '';
       document.getElementById('feelings').value = '';
