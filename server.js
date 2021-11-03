@@ -62,9 +62,10 @@ app.get('/GetAllData', (req, res) => {
 
 // POST request to add incoming data to allWeatherData Object 
 app.post('/addWeatherData', (req, res) => {
-   allWeatherData['temperature'] = req.body.temp;
-   allWeatherData['userFeelings']= req.body.userFeeling; 
-   allWeatherData['data']        = req.body.data;
+   allWeatherData['city']         = req.body.city;
+   allWeatherData['temperature']  = req.body.temp;
+   allWeatherData['userFeelings'] = req.body.userFeeling; 
+   allWeatherData['date']         = req.body.date;
 });
 
 // Callback function to complete GET '/all'

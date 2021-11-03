@@ -46,12 +46,13 @@ const updateUI = async () => {
    const serverResponse = await fetch('/GetAllData');
    try {
       const fetchedData = await serverResponse.json();
-      console.log('successfully retrieved all weather data for UI:', fetchedData);
+      console.log('successfully retrieved all weather data for UI Data is:', fetchedData);
 
       // update UI with retrieved weather data 
-      document.getElementById('temp').innerText = `Temperature: ${fetchedData.temperature}`;
+      document.getElementById('city').innerText    = `City: ${fetchedData.city}`;
+      document.getElementById('temp').innerText    = `Temperature: ${fetchedData.temperature} °C`;
       document.getElementById('content').innerText = `You're Feeling: ${fetchedData.userFeelings}`;
-      document.getElementById('date').innerText = `Date: ${fetchedData.date}`;
+      document.getElementById('date').innerText    = `Date: ${fetchedData.date}`;
       // clear ZIP/Feelings fields
       document.getElementById('zip').value = '';
       document.getElementById('feelings').value = '';
@@ -82,7 +83,9 @@ document.getElementById('generate').addEventListener('click', (event) => {
    getWeatherData(opneWeatherMapLink, userInteredZipCode, API_KEY)
    // POST req to the server's endpoint with new weather/user data
    .then( (weatherData) => {
+      console.log(weatherData); // Debugging
       postWeatherData('/addWeatherData', {
+         city: weatherData.name,
          temp: weatherData.main.temp,
          userFeeling: userFeeling,
          date: newDate,
