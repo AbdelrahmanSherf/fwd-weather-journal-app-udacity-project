@@ -1,111 +1,429 @@
-body{
-    background: #fffff8;
+html {
+    min-height: 100%;
+    background-image: url(/imgs/bg7.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:  center center;
+    background-attachment: fixed;
+ }
+ body {
+    height: 100%;
+    /* background: linear-gradient(300deg,#349dd6, #acdeff); */
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-#app{
-    display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    height:100vh;
-    background: #f23557;
-    color: #f0d43a;
-    justify-content: center;
-    grid-gap: 1em;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
-
-.holder{
-
-}
-
-.entry{
-    background: rgba(59, 74, 107, .4);
-}
-
-#entryHolder{
-
-}
-
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
-
-.headline {
-
-}
-.title{
-
-}
-
-/*  Basic Styling To Override Default For Basic HTML Elements */
-label{
-    display:block;
-    font-size: 27px;
-}
-
-input{
-    display:block;
-    height: 60px;
-    width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-}
-
-button{
-    width: 400px;
-    height: 100px;
-    background: #3b4a6b;
-    color: #f0d43a;
-    font-size: 26px;
-    font-family: 'Oswald', sans-serif;
-    border: none;
-    box-shadow: 2px 4px 5px #444;
-}
-h1{
-    font-size: 36px;
-}
-
-textarea{
-    background:#22b2da;
-    color: #f0d43a;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
-}
-/* Reset style for HTML element on active to have no border*/
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-/* Style for Placeholder Text*/
-::placeholder { /* Firefox, Chrome, Opera */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
-  
-::-ms-input-placeholder { /* Microsoft Edge */ 
-    color: #f0d43a; 
-    font-family: 'Oswald', sans-serif;
-
-} 
+ }
+ 
+ 
+ .center {
+    margin: auto;
+    text-align: center;
+ }
+ 
+ .container {
+   width: 100%;
+   height: 100%;
+ }
+ 
+ /* Large Screens */
+ @media only screen and (min-device-width: 700px) and (max-width: 2600px) {
+ 
+    /* Logo Section*/
+    .container-logo {
+       max-width: 800px;
+       font-size: 23px;
+       font-weight: bold;
+       text-align: center;
+       color: white;
+       /* padding: 10px; */
+       /* margin-top: 1%; */
+       margin-left: auto;
+       margin-right: auto;
+       /* margin-bottom: 1%; */
+    }
+ 
+ 
+    /* Zip Code section */
+    .container-zip {
+       /* background: red; */
+       display: inline-flex;
+       flex-direction: column;
+       width: 400px;
+       height: 150px;
+       line-height: 70px;
+       /* margin-left: 1%; */
+       color: white;
+       font-size: 30px;
+       font-weight: thin;
+       text-align: center;
+       margin: 1%;
+    }
+    .container-zip input {
+       width: 300px;
+       height: 50px;
+       background: none;
+       border: 2px solid #f79438;
+       outline: none;
+       box-shadow: -10px 5px 40px rgba(234,181,126,0.8);
+       border-radius: 10px 10px 10px 10px;
+       text-align: center;
+       font-size: 20px;
+       font-weight: bold;
+       color: white;
+       margin-right: auto;
+       margin-left: auto;
+       background-color: rgba(255, 255, 255, 0.15);
+       backdrop-filter: blur(3px);
+       transition: 0.4s;
+    }
+    /* TODO: when input is focused activate the bottom border */
+    .container-zip input:focus {
+       border-bottom: 6px solid #f79438;
+    }
+    .container-zip input::placeholder {
+       color: white;
+       opacity: 0.6;
+    }
+    .container-zip input:focus::placeholder {
+       opacity: 0;
+    }
+ 
+ 
+    /* Feeling Section  */
+    .container-feeling {
+       /* background: red; */
+       display: inline-flex;
+       flex-direction: column;
+       text-align: center;
+       width: 400px;
+       height: 150px;
+       line-height: 70px;
+       /* margin-left: 1%; */
+       margin-top: 1%;
+       font-size: 30px;
+       font-weight: thin;
+       color: white;
+       margin: 1%;
+    }
+    .container-feeling input {
+       width: 300px;
+       height: 50px;
+       background: none;
+       border: 2px solid #f79438;
+       outline: none;
+       box-shadow: 10px 5px 40px rgba(234,181,126,0.8);
+       border-radius: 10px 10px 10px 10px;
+       text-align: center;
+       font-size: 20px;
+       font-weight: bold;
+       color: white;
+       margin-right: auto;
+       margin-left: auto;
+       background-color: rgba(255, 255, 255, 0.15);
+       backdrop-filter: blur(3px);
+       transition: 0.4s;
+    }
+    .container-feeling input:focus {
+       border-bottom: 6px solid #f79438;
+    }
+    .container-feeling input::placeholder {
+       color: white;
+       opacity: 0.6;
+    }
+    .container-feeling input:focus::placeholder {
+       opacity: 0;
+    }
+ 
+ 
+    /* Generate button */
+    .generate-button {
+       /* margin: 100px 25px 25px 25px; */
+       width: 200px;
+       height: 60px;
+       /* background:#6a7018; */
+       background: #f79438;
+       border-radius: 250px;
+       outline: none;
+       text-align: center;
+       border: none;
+       color: white;
+       font-size: 25px;
+       font-weight: bold;
+       cursor: pointer;
+       box-shadow: 0 0 10px rgba(234,181,126,0.5);
+       /* transition: 0.5s; */
+    } 
+ 
+    /* generate with arrow create/style */
+    .generate-button:hover {
+       box-shadow: 10px 10px 30px rgba(234,181,126,255);
+       transition: 0.5s;
+    }
+    .generate-button span.gen {
+       cursor: pointer;
+       display: inline-block;
+       position: relative;
+       transition: 0.5s;
+       top: 15px;
+    }
+    .generate-button span.gen::after {
+       content: '\00bb';
+       position: absolute;
+       opacity: 0;
+       top: 0;
+       right: -30px;
+       transition: 0.3s;
+    }
+    .generate-button:hover span.gen {
+       padding-right: 25px;
+    }
+    .generate-button:hover span.gen::after {
+       opacity: 1;
+       right: 0;
+    }
+    /* generate with active stata, click too long styling */
+    .generate-button:active {
+       background: #ff5039;
+       transition: 0.8s;
+    }
+    .generate-button:active span.gen {
+       /* visibility: hidden; */
+       opacity: 0;
+       transition: 1s;
+    }
+    .generate-button:active span.gen::after {
+       /* visibility: hidden; */
+       opacity: 0;
+       transition: 0.5s;
+    }
+    .generate-button span.angry {
+       position: relative;
+       transition: 1s;
+       bottom: 18px;
+       left: 0px;
+    }
+    .generate-button span.angry::after {
+       content: 'Unclick Me 😡';
+       font-size: 25px;
+       opacity: 0;
+       transition: 0.5s;
+    }
+    .generate-button:active span.angry::after {
+       opacity: 1;
+       transition: 0.5s;
+       transition-delay: 0.5s;
+    }
+ 
+ 
+    /* Results section */
+    .results {
+       /* display: none; */
+       width: fit-content;
+       height: fit-content;
+       max-width: 900px;
+       margin-top: 2%;
+       padding: 0.78%;
+       /* background-color:rgba(255, 255, 255, 0.3);
+       box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.25);
+       border-radius: 20px; */
+    }
+    .entry-holder {
+       display: flex;
+       flex-wrap: wrap;
+       flex-direction: row;
+       justify-content: center;
+    }
+    #results-title, 
+    #city,
+    #temp, 
+    #date, 
+    #content {
+       /* background-color: red; */
+       height: fit-content;
+       font-size: 30px;
+       font-weight: bold;
+       text-align: center;
+       color: white;
+       padding: 1%;
+       padding-right: 2%;
+       padding-left: 2%;
+    }
+    .blur {
+       width: fit-content;
+       height: fit-content;
+       border-radius: 20px;
+       background-color: rgba(255, 255, 255, 0.15);
+       box-shadow: 0 15px 60px rgba(0, 0, 0, 0.6);
+       backdrop-filter: blur(5px);
+    }
+ 
+ }
+ 
+ 
+ /* Small Screens */
+ @media only screen and (min-device-width: 300px) and (max-device-width: 700px) {
+ 
+    /* Logo Section*/
+    .container-logo {
+       font-size: 50px;
+       color: white;
+       font-weight: bold;
+       text-align: center;
+       /* padding-top: 40px; */
+       /* line-height: 90px; */
+       margin-left: auto;
+       margin-right: auto;
+       /* margin-bottom: 10%; */
+    }
+ 
+ 
+    /* Zip Code section */
+    .container-zip {
+       display: inline-flex;
+       flex-direction: column;
+       width: 900px;
+       height: 350px;
+       line-height: 150px;
+       margin: auto;
+       color: white;
+       font-size: 60px;
+       font-weight: thin;
+       text-align: center;
+    }
+    .container-zip input {
+       width: 500px;
+       height: 120px;
+       background: none;
+       border: 2px solid #f79438;
+       outline: none;
+       box-shadow: -10px 5px 40px rgba(234,181,126,0.8);
+       border-radius: 10px 10px 10px 10px;
+       text-align: center;
+       font-size: 40px;
+       font-weight: bold;
+       color: white;
+       margin-right: auto;
+       margin-left: auto;
+       background-color: rgba(255, 255, 255, 0.2);
+       backdrop-filter: blur(8px);
+       transition: 0.4s;
+    }
+    /* TODO: when input is focused activate the bottom border */
+    .container-zip input:focus {
+       border-bottom: 15px solid #f79438;
+    }
+    .container-zip input::placeholder {
+       color: white;
+       opacity: 0.6;
+    }
+    .container-zip input:focus::placeholder {
+       opacity: 0;
+    }
+ 
+ 
+    /* Feeling Section  */
+    .container-feeling {
+       display: inline-flex;
+       flex-direction: column;
+       text-align: center;
+       width: 900px;
+       height: 350px;
+       /* margin-left: auto; */
+       /* margin-right: auto; */
+    }
+    .container-feeling label {
+       display: block;
+       font-size: 60px;
+       font-weight: thin;
+       color: white;
+       margin: 2%;
+    }
+    .container-feeling input {
+       width: 500px;
+       height: 120px;
+       margin: 3%;
+       background: none;
+       border: 2px solid #f79438;
+       outline: none;
+       box-shadow: 10px 5px 40px rgba(234,181,126,0.8);
+       border-radius: 10px 10px 10px 10px;
+       text-align: center;
+       font-size: 40px;
+       font-weight: bold;
+       color: white;
+       margin-right: auto;
+       margin-left: auto;
+       background-color: rgba(255, 255, 255, 0.2);
+       backdrop-filter: blur(8px);
+       transition: 0.4s;
+    }
+    .container-feeling input:focus {
+       border-bottom: 15px solid #f79438;
+    }
+    .container-feeling input::placeholder {
+       color: white;
+       opacity: 0.6;
+    }
+    .container-feeling input:focus::placeholder {
+       opacity: 0;
+    }
+ 
+    
+    /* Generate button in action state style and animation */
+    .generate-button {
+       width: 500px;
+       height: 100px;
+       background:#f79438;
+       border-radius: 250px;
+       outline: none;
+       border: none;
+       text-align: center;
+       color: white;
+       font-size: 50px;
+       font-weight: bold;
+       cursor: pointer;
+       box-shadow: 0 0 50px rgba(234,181,126,1);
+       margin: 1%;
+    } 
+    .generate-button:focus {
+       background: #ff5039;
+    }
+ 
+ 
+    /* Results section */
+    .results {
+       /* display: none; */
+       width: 800px;
+       height: fit-content;
+       text-align: center;
+       margin-top: 6%;
+       margin-bottom: 100px;
+       /* background-color:rgba(255, 255, 255, 0.3);
+       border-radius: 40px; */
+    }
+    .entry-holder {
+       display: inline-flex;
+       flex-wrap: wrap;
+       flex-direction: column;
+       justify-content: center;
+    }
+    #results-title, 
+    #city,
+    #temp, 
+    #date, 
+    #content {
+       font-size: 60px;
+       font-weight: bold;
+       text-align: center;
+       color: white;
+       /* margin: 0.5%; */
+       padding: 3%;
+    }
+    .blur {
+       width: fit-content;
+       height: fit-content;
+       border-radius: 40px;
+       background-color: rgba(255, 255, 255, 0.15);
+       box-shadow: 0 15px 60px rgba(0, 0, 0, 0.3);
+       backdrop-filter: blur(8px);
+    }
+ 
+ }
