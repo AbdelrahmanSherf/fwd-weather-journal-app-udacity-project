@@ -15,12 +15,17 @@ const API_KEY = '&appid=2550c62ec56892ef3bf11c0ba456d346';
 // GET request to the OpenWeatherMap API.
 const getWeatherData = async (baseURL, zipCode, APIKey) => {
    const openWeatherResponse = await fetch(baseURL + zipCode + degreesCelsius + APIKey);
+   
+   // server error status
+   let errorStatus = openWeatherResponse.status, 
+       ErrorStatusText = openWeatherResponse.statusText;
+   
    try {
       const weatherData = await openWeatherResponse.json();
       return weatherData;
       console.log(weatherData);
    } catch(error) {
-      console.log('error fetching data from open weather', error);
+      console.log(`error fetching data from open weather server response: ${errorStatus} ${ErrorStatusText}, Error: ${error}`);
    }
 }
  
@@ -46,16 +51,34 @@ const updateUI = async () => {
    const serverResponse = await fetch('/GetAllData');
    try {
       const fetchedData = await serverResponse.json();
-      console.log('successfully retrieved all weather data for UI Data is:', fetchedData);
+      console.log('successfully retrieved all weather data from server endpoint for UI, Data is:', fetchedData);     // Debugging
+      
+      // Initializing HTML Elements
+      const zipInputField       = document.getElementById('zip');
+      const feelingsInputField  = document.getElementById('feelings');
+      const resultFeeling       = document.getElementById('content');
 
       // update UI with retrieved weather data 
       document.getElementById('city').innerText    = `City: ${fetchedData.city}`;
       document.getElementById('temp').innerText    = `Temperature: ${fetchedData.temperature} °C`;
-      document.getElementById('content').innerText = `You're Feeling: ${fetchedData.userFeelings}`;
       document.getElementById('date').innerText    = `Date: ${fetchedData.date}`;
+      // if feelings field is empty print nice phrase to the user
+      if (!feelingsInputField.value == '') {
+         resultFeeling.innerText = `You're Feeling: ${fetchedData.userFeelings}`;
+      } else if (feelingsInputField.value == '') {
+         resultFeeling.innerText = "You're Feeling: Of Course You're Happy ;)";
+      } 
+
+      // display the result panel
+      document.getElementById('glass').style.opacity = '1';
+
       // clear ZIP/Feelings fields
-      document.getElementById('zip').value = '';
-      document.getElementById('feelings').value = '';
+      feelingsInputField.value  = '';
+      zipInputField.value       = '';
+      zipInputField.placeholder = 'Enter ZIP Code';
+      zipInputField.classList.remove('input-error');
+      zipInputField.classList.add('input-normal');
+
    } catch(error) {
       console.log('could not retrieve all weather data for UI:', error);
    }
@@ -64,35 +87,37 @@ const updateUI = async () => {
 
 // Start the App. Yay!
 
-// Event listener for the generate botton, to statr the whole application.
+// Event listener on the generate botton, to statr the whole application.
 document.getElementById('generate').addEventListener('click', (event) => {
 
    /* HTML Elements Variables */
-
-   // user intered zip code
-   const userInteredZipCode = document.getElementById('zip').value;
-   // user intered feeling
-   const userFeeling = document.getElementById('feelings').value;
+   const zipInputField = document.getElementById('zip');
+   const feelingsInputField = document.getElementById('feelings');
 
    /* Create a new date instance dynamically with JS */
    const date = new Date();
    let newDate = date.getMonth()+'.'+ date.getDate()+'.'+ date.getFullYear();
 
-   /* GET - POST Requests, Async Functions */
-   // GET req openWeatherMapAIP
-   getWeatherData(opneWeatherMapLink, userInteredZipCode, API_KEY)
-   // POST req to the server's endpoint with new weather/user data
-   .then( (weatherData) => {
-      console.log(weatherData); // Debugging
-      postWeatherData('/addWeatherData', {
-         city: weatherData.name,
-         temp: weatherData.main.temp,
-         userFeeling: userFeeling,
-         date: newDate,
-      });
-   })
-   // daynamically update UI with new data
-   .then(updateUI)
+   /* Assertion for empty Fields, GET/POST Requests, Async Functions */
+   if (!zipInputField.value == '') {
+      getWeatherData(opneWeatherMapLink, zipInputField.value, API_KEY)
+      .then( (weatherData) => {
+         // console.log(weatherData); // Debugging
+         // POST req to the server's endpoint with new weather/user data
+         postWeatherData('/addWeatherData', {
+            city: weatherData.name,
+            temp: weatherData.main.temp,
+            userFeeling: feelingsInputField.value,
+            date: newDate,
+         });
+      })
+      .then(updateUI)
+   } else {
+      // if zip code field is empty
+      zipInputField.placeholder = 'Please Enter Your ZIP Code';
+      zipInputField.classList.remove('input-normal');
+      zipInputField.classList.add('input-error');
+   }
    
 });
 

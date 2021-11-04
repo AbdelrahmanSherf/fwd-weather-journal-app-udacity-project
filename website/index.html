@@ -5,10 +5,6 @@
     <title>Weather Journal</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Debugging -->
-    <!-- <link rel="stylesheet" href="styleT.css"> -->
-    <!-- <link rel="stylesheet" href="MOBILEStyle.css"> -->
-    <!-- <link rel="stylesheet" href="largScreenStyle.css"> -->
   </head>
   
   <body>
@@ -23,13 +19,13 @@
       <div class="center"> 
         <div class="container-zip">
             <label for="zip">What Is Your ZIP Code?</label>
-            <input type="text" id="zip" placeholder="Enter ZIP Code">
+            <input type="text" id="zip" placeholder="Enter ZIP Code" class="input-normal">
             <!-- Debugging -->
-            <!-- <input type="text" id="zip" placeholder="Enter ZIP Code" value="72201"> -->
+            <!-- <input type="text" id="zip" placeholder="Enter ZIP Code" class="input-normal" value="72201"> -->
         </div>
         <div class="container-feeling">
           <label for="feelings">How Are You Feeling Today?</label>
-          <input  id="feelings" placeholder="Enter Your Feelings"></input>
+          <input id="feelings" placeholder="How are You Feeling?" class="input-normal">
         </div>
       </div>
 
@@ -40,8 +36,8 @@
         </button>
       </div>
       
-      <div class="results center">
-        <div class="blur">
+      <div id="container-results" class="center">
+        <div id="glass">
           <div id="results-title">Your Results:</div>
           <div class="entry-holder">
             <div id="city"></div>
