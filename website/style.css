@@ -9,29 +9,13 @@ html {
 body {
    height: 100%;
    margin: 0;
-   /* background: linear-gradient(300deg,#349dd6, #acdeff); */
    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-
-/* GLOBAL RULES */
-/* .center {
-   margin: auto;
-   text-align: center;
-} */
-
 .container {
-   /* width: 100%; */
    display: flex;
    flex-direction: column;
    height: 100%;
-   /* justify-content: center; */
-}
-
-#glass {
-   opacity: 1; /* modify from JS */
-   transition-timing-function: ease-out;
-   transition: 0.5s;
 }
 
 #container-results {
@@ -195,12 +179,10 @@ body {
       transition: 0.8s;
    }
    .generate-button:active span.gen {
-      /* visibility: hidden; */
       opacity: 0;
       transition: 1s;
    }
    .generate-button:active span.gen::after {
-      /* visibility: hidden; */
       opacity: 0;
       transition: 0.5s;
    }
@@ -236,9 +218,6 @@ body {
       background-color: rgba(255, 255, 255, 0.15);
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(5px);
-      /* background-color:rgba(255, 255, 255, 0.3);
-      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.25);
-      border-radius: 20px; */
    }
    .entry-holder {
       display: flex;
@@ -251,7 +230,6 @@ body {
    #temp, 
    #date, 
    #content {
-      /* background-color: red; */
       height: fit-content;
       font-size: 30px;
       font-weight: bold;
@@ -261,14 +239,6 @@ body {
       padding-right: 2%;
       padding-left: 2%;
    }
-   /* #glass {
-      width: fit-content;
-      height: fit-content;
-      border-radius: 20px;
-      background-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(5px);
-   } */
 
    /* Start Footer Rules */
    .footer-container {
@@ -282,8 +252,6 @@ body {
       left: 0;
       right: 0;
       color: rgb(202, 202, 202);
-      /* background: red; */
-      /* background: linear-gradient(0deg, #f79438 50%, rgba(255, 255, 255, 0)); */
    }
    .footer-container a {
       color: white;
@@ -372,11 +340,8 @@ body {
       color: white;
       font-weight: bold;
       text-align: center;
-      /* padding-top: 40px; */
-      /* line-height: 90px; */
       margin-left: auto;
       margin-right: auto;
-      /* margin-bottom: 10%; */
    }
 
    /* zip and feeling container */
@@ -465,14 +430,9 @@ body {
       font-weight: bold;
       text-align: center;
       color: white;
-      /* margin: 0.5%; */
       padding: 3%;
    }
-   /* #glass {
-      width: fit-content;
-      height: fit-content;
 
-   } */
    /* Start Footer Rules */
    .footer-container {
       display: inline-flex;
@@ -485,8 +445,6 @@ body {
       left: 0;
       right: 0;
       color: rgb(202, 202, 202);
-      /* background: red; */
-      /* background: linear-gradient(0deg, #f79438 50%, rgba(255, 255, 255, 0)); */
    }
    .footer-container a {
       color: white;
