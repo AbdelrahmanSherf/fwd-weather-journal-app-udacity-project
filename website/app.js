@@ -70,7 +70,7 @@ const updateUI = async () => {
       } 
 
       // display the result panel
-      document.getElementById('glass').style.opacity = '1';
+      document.getElementById('container-results').style.opacity = '1';
 
       // clear ZIP/Feelings fields
       feelingsInputField.value  = '';
@@ -96,7 +96,7 @@ document.getElementById('generate').addEventListener('click', (event) => {
 
    /* Create a new date instance dynamically with JS */
    const date = new Date();
-   let newDate = date.getMonth()+'.'+ date.getDate()+'.'+ date.getFullYear();
+   let newDate = date.getMonth()+'.'+ date.getDay()+'.'+ date.getFullYear();
 
    /* Assertion for empty Fields, GET/POST Requests, Async Functions */
    if (!zipInputField.value == '') {

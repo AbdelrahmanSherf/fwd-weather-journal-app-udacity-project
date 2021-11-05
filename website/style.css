@@ -8,23 +8,33 @@ html {
 }
 body {
    height: 100%;
+   margin: 0;
    /* background: linear-gradient(300deg,#349dd6, #acdeff); */
    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 
 /* GLOBAL RULES */
-.center {
+/* .center {
    margin: auto;
    text-align: center;
-}
+} */
 
 .container {
-   width: 100%;
+   /* width: 100%; */
+   display: flex;
+   flex-direction: column;
    height: 100%;
+   /* justify-content: center; */
 }
 
 #glass {
+   opacity: 1; /* modify from JS */
+   transition-timing-function: ease-out;
+   transition: 0.5s;
+}
+
+#container-results {
    opacity: 0; /* modify from JS */
    transition-timing-function: ease-out;
    transition: 0.5s;
@@ -33,6 +43,7 @@ body {
 
 
 
+ 
 /********************************* Large Screens *********************************/
 
 
@@ -98,65 +109,59 @@ body {
       font-weight: bold;
       text-align: center;
       color: white;
-      /* padding: 10px; */
-      /* margin-top: 1%; */
       margin-left: auto;
       margin-right: auto;
-      /* margin-bottom: 1%; */
    }
 
-   /* Zip Code section */
-   .container-zip {
-      /* background: red; */
+   /* zip and feeling container */
+   .zip-feeling-container {
       display: inline-flex;
-      flex-direction: column;
-      width: 400px;
-      height: 150px;
-      line-height: 70px;
-      /* margin-left: 1%; */
-      color: white;
-      font-size: 30px;
-      font-weight: thin;
+      flex-direction: row;
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
-      margin: 1%;
    }
-
-   /* Feeling Section  */
+   /* zip code and feelings sections */
+   .container-zip,
    .container-feeling {
-      /* background: red; */
+      /* background: green; */
       display: inline-flex;
       flex-direction: column;
-      text-align: center;
-      width: 400px;
-      height: 150px;
-      line-height: 70px;
-      /* margin-left: 1%; */
-      margin-top: 1%;
+      width: 500px;
+      color: white;
       font-size: 30px;
       font-weight: thin;
-      color: white;
-      margin: 1%;
+      padding: 1%;
+   }
+   .container-zip input ,
+   .container-feeling input {
+      margin: 5%;
+      margin-left: auto;
+      margin-right: auto;
    }
 
-   /* Generate button */
+   /* Generate button in action state style and animation */
+   .button-container {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1%;
+      margin-top: 1%;
+      text-align: center;
+
+   }
    .generate-button {
-      /* margin: 100px 25px 25px 25px; */
       width: 200px;
       height: 60px;
-      /* background:#6a7018; */
       background: #f79438;
       border-radius: 250px;
       outline: none;
-      text-align: center;
       border: none;
       color: white;
       font-size: 25px;
       font-weight: bold;
       cursor: pointer;
       box-shadow: 0 0 10px rgba(234,181,126,0.5);
-      /* transition: 0.5s; */
    } 
-
    /* generate button with arrow create/style */
    .generate-button:hover {
       box-shadow: 10px 10px 30px rgba(234,181,126,255);
@@ -222,8 +227,15 @@ body {
       width: fit-content;
       height: fit-content;
       max-width: 900px;
-      margin-top: 2%;
+      margin-top: 1%;
+      margin-bottom: 1%;
       padding: 0.78%;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(5px);
       /* background-color:rgba(255, 255, 255, 0.3);
       box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.25);
       border-radius: 20px; */
@@ -249,14 +261,49 @@ body {
       padding-right: 2%;
       padding-left: 2%;
    }
-   #glass {
+   /* #glass {
       width: fit-content;
       height: fit-content;
       border-radius: 20px;
       background-color: rgba(255, 255, 255, 0.15);
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(5px);
+   } */
+
+   /* Start Footer Rules */
+   .footer-container {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: 60px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: rgb(202, 202, 202);
+      /* background: red; */
+      /* background: linear-gradient(0deg, #f79438 50%, rgba(255, 255, 255, 0)); */
    }
+   .footer-container a {
+      color: white;
+      text-decoration: none;
+   }
+   .footer-content {
+      width: 100%;
+      height: 50%;
+      font-size: 14px;
+      text-align: center;
+      line-height: 10px;
+      margin-top: auto;
+      margin-bottom: auto;
+   }
+   .footer-container p {
+      font-size: 11px; 
+      color: white;
+   }
+   /* End Footer Rules */
+
 
 }
 
@@ -272,7 +319,7 @@ body {
    /* input element in normal state */
    .input-normal {
       width: 500px;
-      height: 120px;
+      height: 100px;
       border: 2px solid #f79438;
       outline: none;
       box-shadow: -10px 5px 40px rgba(234,181,126,0.8);
@@ -303,7 +350,7 @@ body {
       box-shadow: -10px 5px 40px rgba(255,32,47, 0.8);
       border-radius: 10px 10px 10px 10px;
       text-align: center;
-      font-size: 40px;
+      font-size: 35px;
       font-weight: bold;
       color: white;
       margin-right: auto;
@@ -321,7 +368,7 @@ body {
 
    /* Logo Section*/
       .container-logo {
-      font-size: 50px;
+      font-size: 40px;
       color: white;
       font-weight: bold;
       text-align: center;
@@ -332,39 +379,43 @@ body {
       /* margin-bottom: 10%; */
    }
 
-   /* Zip Code section */
-   .container-zip {
+   /* zip and feeling container */
+   .zip-feeling-container {
       display: inline-flex;
       flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;      
       width: 900px;
       height: 350px;
-      line-height: 150px;
-      margin: auto;
-      color: white;
-      font-size: 60px;
-      font-weight: thin;
-      text-align: center;
-   }
 
-   /* Feeling Section  */
+   }
+   /* zip code and feelings Section  */
+   .container-zip,
    .container-feeling {
+      /* background: green; */
       display: inline-flex;
       flex-direction: column;
-      text-align: center;
       width: 900px;
       height: 350px;
-      /* margin-left: auto; */
-      /* margin-right: auto; */
+      padding: 1%;
    }
+   .container-zip label,
    .container-feeling label {
       display: block;
       font-size: 60px;
+      text-align: center;
       font-weight: thin;
       color: white;
       margin: 2%;
    }
 
-   /* Generate button in action state style and animation */
+   /* Generate button */
+   .button-container {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 150px;
+   }
    .generate-button {
       width: 500px;
       height: 100px;
@@ -379,6 +430,7 @@ body {
       cursor: pointer;
       box-shadow: 0 0 50px rgba(234,181,126,1);
       margin: 1%;
+      margin-top: 5%;
    } 
    .generate-button:focus {
       background: #ffbb7b;
@@ -388,11 +440,15 @@ body {
    #container-results {
       width: 800px;
       height: fit-content;
-      text-align: center;
       margin-top: 6%;
-      margin-bottom: 100px;
-      /* background-color:rgba(255, 255, 255, 0.3);
-      border-radius: 40px; */
+      margin-bottom: 40px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 40px;
+      background-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
    }
    .entry-holder {
       display: inline-flex;
@@ -405,21 +461,51 @@ body {
    #temp, 
    #date, 
    #content {
-      font-size: 60px;
+      font-size: 55px;
       font-weight: bold;
       text-align: center;
       color: white;
       /* margin: 0.5%; */
       padding: 3%;
    }
-   #glass {
+   /* #glass {
       width: fit-content;
       height: fit-content;
-      border-radius: 40px;
-      background-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(8px);
+
+   } */
+   /* Start Footer Rules */
+   .footer-container {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: 100px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: rgb(202, 202, 202);
+      /* background: red; */
+      /* background: linear-gradient(0deg, #f79438 50%, rgba(255, 255, 255, 0)); */
    }
+   .footer-container a {
+      color: white;
+      text-decoration: none;
+   }
+   .footer-content {
+      width: 100%;
+      height: 50%;
+      font-size: 25px;
+      text-align: center;
+      line-height: 20px;
+      margin-top: auto;
+      margin-bottom: auto;
+   }
+   .footer-container p {
+      font-size: 20px; 
+      color: white;
+   }
+   /* End Footer Rules */
 
 }
 
