@@ -117,6 +117,7 @@ document.getElementById('generate').addEventListener('click', (event) => {
       zipInputField.placeholder = 'Please Enter Your ZIP Code';
       zipInputField.classList.remove('input-normal');
       zipInputField.classList.add('input-error');
+      document.getElementById('container-results').style.opacity = '0';
    }
    
 });
