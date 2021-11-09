@@ -420,6 +420,7 @@ body {
       flex-wrap: wrap;
       flex-direction: column;
       justify-content: center;
+      min-width: 615px;
    }
    #results-title, 
    #city,
