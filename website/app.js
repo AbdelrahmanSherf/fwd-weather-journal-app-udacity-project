@@ -7,6 +7,10 @@ const degreesCelsius = '&units=metric';
 // Personal API Key for OpenWeatherMap API
 const API_KEY = '&appid=2550c62ec56892ef3bf11c0ba456d346';
 
+/* Create a new date instance dynamically with JS */
+const date = new Date();
+let newDate = date.getMonth() + 1 + '.' + date.getDate() + '.' + date.getFullYear();
+
 
 /**
  * async Functions - GET, POST Requests to the Server *
@@ -57,11 +61,15 @@ const updateUI = async () => {
       const zipInputField       = document.getElementById('zip');
       const feelingsInputField  = document.getElementById('feelings');
       const resultFeeling       = document.getElementById('content');
+      const cityInnerText       = document.getElementById('city');
+      const tempInnerText       = document.getElementById('temp');
+      const dateInnerText       = document.getElementById('date');
 
       // update UI with retrieved weather data 
-      document.getElementById('city').innerText    = `City: ${fetchedData.city}`;
-      document.getElementById('temp').innerText    = `Temperature: ${fetchedData.temperature} °C`;
-      document.getElementById('date').innerText    = `Date: ${fetchedData.date}`;
+      cityInnerText.innerText = `City: ${fetchedData.city}`;
+      tempInnerText.innerText = `Temperature: ${fetchedData.temperature} °C`;
+      dateInnerText.innerText = `Date: ${fetchedData.date}`;
+
       // if feelings field is empty print nice phrase to the user
       if (!feelingsInputField.value == '') {
          resultFeeling.innerText = `You're Feeling: ${fetchedData.userFeelings}`;
@@ -90,15 +98,11 @@ const updateUI = async () => {
 // Event listener on the generate botton, to statr the whole application.
 document.getElementById('generate').addEventListener('click', (event) => {
 
-   /* HTML Elements Variables */
+   /* HTML Elements */
    const zipInputField = document.getElementById('zip');
    const feelingsInputField = document.getElementById('feelings');
 
-   /* Create a new date instance dynamically with JS */
-   const date = new Date();
-   let newDate = date.getMonth()+'.'+ date.getDay()+'.'+ date.getFullYear();
-
-   /* Assertion for empty Fields, GET/POST Requests, Async Functions */
+   /* Assertion for empty Zip Code Field, GET/POST Requests, Async Functions */
    if (!zipInputField.value == '') {
       getWeatherData(opneWeatherMapLink, zipInputField.value, API_KEY)
       .then( (weatherData) => {
